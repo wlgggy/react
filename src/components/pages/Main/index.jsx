@@ -5,6 +5,7 @@ import InfoCard from "../../atoms/Widget/index";
 import { MainContainer } from "../../atoms/Widget/styled";
 import Category from "../../atoms/Category";
 import Header from "../../organisms/Header";
+import SideMenu from "../../organisms/SideMenu";
 
 function Main() {
     const [result, setResult] = useState([]);
@@ -23,32 +24,28 @@ function Main() {
     }, []);
 
     return (
-        <div className="Real">
-            <Header/>
-            <div className="yapyap">
-                <div className="Container">
-                    <div className="yap">
-                        <Category title="DESIGN"/>
-                        <Category title="SOFTWARE DEVELOPMENT"/>
-                        <Category title="WEB DEVELOPMENT"/>
-                        <Category title="APP DEVELOPMENT"/>
-                        <Category title="DEVELOPMENT"/>
-                    </div>
-                    <MainContainer>
-                        {result.length > 0 ? (
-                            result.map((item) => (
-                                <div key={item.no} style={{ marginBottom: '20px' }}>
-                                    <Link to={`/sub/${item.no}`}>
-                                        <InfoCard date={item.date} title={item.title} />
-                                    </Link>
+        <div className="Container">
+            <Header />
+            <div className="ContentContainer">
+                <SideMenu />
+                <Link to="/create">
+                    <button>글 생성</button>
+                </Link>
+                <MainContainer>
+                    {result.length > 0 ? (
+                        result.map((item) => (
+                            <div key={item.no} style={{ marginBottom: '20px' }}>
+                                <Link to={`/update/${item.no}`}>
+                                    <InfoCard date={item.date} title={item.title} />
+                                </Link>
 
-                                </div>
-                            ))
-                        ) : (
-                            <p>불러올 데이터가 없습니다.</p>
-                        )}
-                    </MainContainer>
-                </div></div>
+                            </div>
+                        ))
+                    ) : (
+                        <p>불러올 데이터가 없습니다.</p>
+                    )}
+                </MainContainer>
+            </div>
         </div>
     );
 }

@@ -9,8 +9,8 @@ function Header() {
         <Title>J O U R N A L</Title>
         <Nav>
           <p>About</p>
-          <p>Login</p>
-          <p>SignIn</p>
+          <p>Log In</p>
+          <p>Sign In</p>
         </Nav>
       </Menu>
     </HeaderContainer>

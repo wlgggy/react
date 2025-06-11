@@ -14,7 +14,7 @@ export const Menu = styled.div`
   justify-content: space-between;
 `;
 
-export const Title = styled.h4`
+export const Title = styled.h5`
   width: 100%;
   display: flex;
   justify-content: start;

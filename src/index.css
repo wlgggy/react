@@ -1,4 +1,4 @@
-*{
+* {
   padding: 0;
   margin: 0;
 }
@@ -10,6 +10,13 @@
   padding: 1rem 8rem;
   text-align: center;
   background-color: #f1f1f1;
+}
+
+.flex {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 ::-webkit-scrollbar {
@@ -29,27 +36,36 @@ button {
   cursor: pointer;
 }
 
-.Container {
-  margin-top: 4rem;
-  width: 1400px;
-  display: flex;
-  justify-content: end;
-
-}
-.yapyap{
-   display: flex;
-   justify-content: center;
-}
-.Real{
+.ContentContainer {
+  margin-top: 10rem;
+  width: 80vw;
   display: flex;
   flex-direction: column;
-}
-.yap {
-  position: fixed;
-  top: 10rem; /* 헤더 높이에 맞춰 조절 */
-  left: 8rem; /* 화면 왼쪽 여백 */
-  width: 250px;
-  height: 500px;
-  z-index: 10;
+  align-items: end;
 }
 
+.FormContainer {
+  margin-top: 10rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60vw;
+}
+
+.Container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.row {
+  width: 50vw;
+  display: flex;
+  justify-content: space-between;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
