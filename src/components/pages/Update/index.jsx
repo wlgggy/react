@@ -10,7 +10,7 @@ function UpdateBoard() {
   const { no } = useParams();
   const navigate = useNavigate();
 
-  const [board, setBoard] = useState({ title: "", content: "" });
+  const [board, setBoard] = useState({ title: "", content: "", createDate: "" });
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
@@ -83,8 +83,9 @@ function UpdateBoard() {
           />
           <div
             className="row"
-            style={{ display: "flex", justifyContent: "space-between", alignItems: "center", justifyContent: "end" }}
+            style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}
           >
+            <div style={{ padding: "0 0 0 10px" }}>{board.createDate}</div>
             <Button type="button" onClick={handleEditToggle} style={{ display: isEditing ? "none" : "flex" }} ButtonName="수정" />
             {
               isEditing && (

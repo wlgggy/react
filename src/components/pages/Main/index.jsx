@@ -31,7 +31,7 @@ function Main() {
                 <Link to="/create"><LinkButton ButtonName="글 생성" style={{
                     position: "fixed",
                     bottom: "5vh",
-                    right: "5vw"
+                    right: "2vw"
                 }} /></Link>
                 <MainContainer>
                     {result.length > 0 ? (

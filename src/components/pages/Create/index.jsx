@@ -10,7 +10,7 @@ import Button from "../../atoms/Button";
 function CreateBoard() {
   const navigate = useNavigate();
 
-  const [board, setBoard] = useState({ title: "", content: "" });
+  const [board, setBoard] = useState({ title: "", content: "", createDate: "" });
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState(null);
 
