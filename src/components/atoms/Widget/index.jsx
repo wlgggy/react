@@ -1,4 +1,4 @@
-// InfoCard.js
+// InfoCard
 import React from "react";
 import { Card, DateText, TitleText, MoreText } from "./styled";
 

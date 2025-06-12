@@ -1,3 +1,4 @@
+// SideMenu
 import React from "react";
 import Category from "../../atoms/Category";
 import { CategoryContainer } from "./styled";

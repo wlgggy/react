@@ -4,33 +4,31 @@ import { useParams, useNavigate } from "react-router-dom";
 import Header from "../../organisms/Header";
 import Content from "../../atoms/Content";
 import Title from "../../atoms/Title";
-import Buttons from "../../organisms/Buttons";
-import Date from "../../organisms/Date";
+import Button from "../../atoms/Button";
 
 function UpdateBoard() {
   const { no } = useParams();
   const navigate = useNavigate();
 
-  const [board, setBoard] = useState({ title: "", content: "", date: "" });
+  const [board, setBoard] = useState({ title: "", content: "" });
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [error, setError] = useState(null);
 
-  const fetchBoard = useCallback(async () => {
-    try {
-      const { data } = await axios.get(`http://localhost:8080/board/${no}`);
-      setBoard(data);
-    } catch {
-      setError("게시글을 불러오는 데 실패했어요 😥");
-    } finally {
-      setLoading(false);
-    }
-  }, [no]);
-
   useEffect(() => {
+    const fetchBoard = async () => {
+      try {
+        const { data } = await axios.get(`http://localhost:8080/board/${no}`);
+        setBoard(data);
+      } catch {
+        setError("게시글을 불러오는 데 실패했어요 😥");
+      } finally {
+        setLoading(false);
+      }
+    };
     fetchBoard();
-  }, [fetchBoard]);
+  }, [no]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -51,7 +49,7 @@ function UpdateBoard() {
       await axios.put(`http://localhost:8080/board/${no}`, board);
       alert("게시글 수정 완료! 💾");
       setIsEditing(false);
-      navigate("/");
+      navigate("/main");
     } catch {
       setError("수정하는 데 문제가 생겼어요. 다시 시도해 주세요.");
     } finally {
@@ -64,7 +62,7 @@ function UpdateBoard() {
     try {
       await axios.delete(`http://localhost:8080/board/${no}`);
       alert("게시글이 삭제되었어요 🗑️");
-      navigate("/");
+      navigate("/main");
     } catch {
       alert("삭제하는 중 오류가 발생했어요 😢");
     }
@@ -76,7 +74,7 @@ function UpdateBoard() {
     <div className="Container">
       <Header />
       <div className="FormContainer">
-        <form onSubmit={handleSubmit}>
+        <form>
           <Title
             name="title"
             value={board.title}
@@ -85,16 +83,17 @@ function UpdateBoard() {
           />
           <div
             className="row"
-            style={{ justifyContent: "space-between", alignItems: "center" }}
+            style={{ display: "flex", justifyContent: "space-between", alignItems: "center", justifyContent: "end" }}
           >
-            <Date value={board.date} />
-            <Buttons
-              isEditing={isEditing}
-              onEditToggle={handleEditToggle}
-              onSubmit={handleSubmit}
-              onDelete={handleDelete}
-              submitting={submitting}
-            />
+            <Button type="button" onClick={handleEditToggle} style={{ display: isEditing ? "none" : "flex" }} ButtonName="수정" />
+            {
+              isEditing && (
+                <div style={{ display: "flex", gap: "10px" }}>
+                  <Button type="submit" onClick={handleSubmit} ButtonName="저장" />
+                  <Button type="submit" onClick={handleDelete} ButtonName="삭제" />
+                </div>
+              )
+            }
           </div>
           <Content
             name="content"

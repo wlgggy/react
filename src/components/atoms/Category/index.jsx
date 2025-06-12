@@ -1,11 +1,12 @@
-// InfoCard.js
+// Categoty
 import React from "react";
-import { CategoryStyle } from "./styled";
+import { CategoryStyle, CategoryButtonStyle } from "./styled";
 
 const Category = ({ title }) => {
   return (
     <>
-      <CategoryStyle>{title}</CategoryStyle>
+      <CategoryStyle>
+        <CategoryButtonStyle>{title}</CategoryButtonStyle></CategoryStyle>
     </>
   );
 };

@@ -3,9 +3,9 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import InfoCard from "../../atoms/Widget/index";
 import { MainContainer } from "../../atoms/Widget/styled";
-import Category from "../../atoms/Category";
 import Header from "../../organisms/Header";
 import SideMenu from "../../organisms/SideMenu";
+import LinkButton from "../../atoms/Button";
 
 function Main() {
     const [result, setResult] = useState([]);
@@ -28,15 +28,17 @@ function Main() {
             <Header />
             <div className="ContentContainer">
                 <SideMenu />
-                <Link to="/create">
-                    <button>글 생성</button>
-                </Link>
+                <Link to="/create"><LinkButton ButtonName="글 생성" style={{
+                    position: "fixed",
+                    bottom: "5vh",
+                    right: "5vw"
+                }} /></Link>
                 <MainContainer>
                     {result.length > 0 ? (
                         result.map((item) => (
                             <div key={item.no} style={{ marginBottom: '20px' }}>
                                 <Link to={`/update/${item.no}`}>
-                                    <InfoCard date={item.date} title={item.title} />
+                                    <InfoCard date={item.createDate} title={item.title} />
                                 </Link>
 
                             </div>

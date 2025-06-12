@@ -1,9 +1,8 @@
-// Header.jsx
+// UpdateBoard Buttons
 import React from "react";
 import { ButtonContainer, ButtonStyle } from "./styled";
 
-// src/components/organisms/Buttons.jsx
-function Buttons({ isEditing, onEditToggle, onSubmit, onDelete, submitting }) {
+function Buttons({ isEditing, onEditToggle, onDelete, submitting }) {
   return (
     <div>
       {!isEditing ? (

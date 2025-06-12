@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Header from "../../organisms/Header";
 import Content from "../../atoms/Content";
 import Title from "../../atoms/Title";
+import Button from "../../atoms/Button";
 
 function CreateBoard() {
   const navigate = useNavigate();
@@ -28,7 +29,7 @@ function CreateBoard() {
     try {
       await axios.post("http://localhost:8080/board", board);
       alert("게시글이 성공적으로 작성되었어요! 🎉");
-      navigate("/");
+      navigate("/main");
     } catch {
       setError("게시글 작성 중 문제가 발생했어요. 다시 시도해 주세요.");
     } finally {
@@ -47,15 +48,18 @@ function CreateBoard() {
             onChange={handleChange}
             disabled={submitting}
           />
+          <div
+            className="row"
+            style={{ display: "flex", justifyContent: "end", alignItems: "center" }}
+          >
+            <Button type="submit" disabled={submitting} ButtonName={submitting ? '작성 중...' : '저장 '} />
+          </div>
           <Content
             name="content"
             value={board.content}
             onChange={handleChange}
             disabled={submitting}
           />
-          <button type="submit" disabled={submitting}>
-            {submitting ? "작성 중..." : "게시글 작성"}
-          </button>
         </form>
         {error && <p style={{ color: "red" }}>{error}</p>}
       </div>

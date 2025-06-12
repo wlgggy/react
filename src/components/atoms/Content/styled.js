@@ -7,5 +7,7 @@ export const ContentTextArea = styled.textarea`
   width: 50vw;
   border: none;
   border-radius: 4px;
-  resize: vertical;
+  resize: none;
+  background-color: #f1f1f1;
+  outline: none;
 `;

@@ -6,4 +6,6 @@ export const TitleInput = styled.input`
   border: none;
   width: 50vw;
   border-radius: 4px;
+  background-color: #f1f1f1;
+  outline: none;
 `;

@@ -2,10 +2,14 @@ import styled from "styled-components";
 
 export const CategoryStyle = styled.div`
  text-align: start;
-  padding-bottom: 20px;
-  color: #C4C4C4;              /* 기본 폰트 컬러 */
+  padding-bottom: 10px;
+`;
 
+export const CategoryButtonStyle = styled.button`
+color: #C4C4C4;
+font-size: 1rem;
   &:hover {
-    color: #000000;            /* 호버 시 폰트 컬러 변경 */
+    color: #000000;
+    scale: 1.1;
   }
 `;

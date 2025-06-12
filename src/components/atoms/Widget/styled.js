@@ -4,11 +4,10 @@ export const MainContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 0px 20px ;
-  justify-content: start;  /* 줄 안 아이템들은 왼쪽부터 차곡차곡 */
+  justify-content: start;
   align-items: center;
   width: 850px;
 `;
-
 
 export const Card = styled.div`
   width: 230px;
@@ -21,6 +20,9 @@ export const Card = styled.div`
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
   padding: 20px;
+  &:hover{
+    scale: 1.05;
+  }
 `;
 
 export const DateText = styled.p`
