@@ -24,7 +24,8 @@ npm run dev
 cd backend
 ./mvnw spring-boot:run  # 또는 IDE에서 실행
 
-# MariaDB는 미리 설치 후 설정 파일에 접속 정보 입력 필수!
+### MariaDB는 미리 설치 후 설정 파일에 접속 정보 입력 필수!
+
 🌱 앞으로의 계획
 Docker로 컨테이너화 + 배포 자동화
 프론트엔드와 백엔드 분리 배포 환경 구축
