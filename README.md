@@ -1,4 +1,4 @@
-🌟 React + Spring Boot + MariaDB 풀스택 프로젝트
+## 🌟 React + Spring Boot + MariaDB 풀스택 프로젝트
 
 🛠 기술 스택
 프론트엔드: React + Vite
@@ -15,12 +15,12 @@ MariaDB 연동으로 신뢰성 높은 데이터 처리
 bash
 복사
 편집
-# 1. 프론트엔드 (React + Vite)
+## 1. 프론트엔드 (React + Vite)
 cd frontend
 npm install
 npm run dev
 
-# 2. 백엔드 (Spring Boot)
+## 2. 백엔드 (Spring Boot)
 cd backend
 ./mvnw spring-boot:run  # 또는 IDE에서 실행
 
